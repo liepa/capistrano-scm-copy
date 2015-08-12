@@ -21,7 +21,7 @@ namespace :copy do
   task :deploy => archive_name do |t|
     tarball = t.prerequisites.first
 
-    on roles(tar_roles) do
+    on release_roles(tar_roles) do
       # Make sure the release directory exists
       puts "==> release_path: #{release_path} is created on #{tar_roles} roles <=="
       execute :mkdir, "-p", release_path
